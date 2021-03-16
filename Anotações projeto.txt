@@ -1,0 +1,3 @@
+ COMPOSER -> Gerenciador de dependencias no PHP ou seja se o projeto precisar de uma biblioteca ou uma lib em php, via composer
+ele cria um arquivo de configuração e vai dizer que quem levar o projeto precisa desse outro cara para ser instalado e configurado
+para que ele funcione corretamente.
