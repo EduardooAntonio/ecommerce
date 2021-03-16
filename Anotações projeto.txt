@@ -1,3 +1,11 @@
  COMPOSER -> Gerenciador de dependencias no PHP ou seja se o projeto precisar de uma biblioteca ou uma lib em php, via composer
 ele cria um arquivo de configuração e vai dizer que quem levar o projeto precisa desse outro cara para ser instalado e configurado
 para que ele funcione corretamente.
+
+TEMPLATE -> A ideia de template é que tem o codigo de php e um layout de html separado e ai se utiliza alguma ferramenta de template
+ai podemos usar o rain tpl para pegar o template que é o codigo html o layout e o codigo php e gerar um mege(casar os dois)
+e gerar um merge(casa os dois) e gera em uma pasta de cache para quando alguem solicitar ele denovo já esta pronto e guarda na pasta de cache
+
+
+RAIN TPL -> Podemos usar o rain tpl para pegar o template que é o codigo html o layout e o codigo php e gerar um mege(casar os dois)
+ e ai podemos dizer quais sao as configurações, diretorio de templates, diretorio de caches com a devida permissoes de pasta é essa.
