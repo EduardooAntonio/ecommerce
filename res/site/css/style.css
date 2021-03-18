@@ -34,7 +34,7 @@ body { font-family:Arial, Helvetica, sans-serif; }
     background: none repeat scroll 0 0 #303942;
 }
 .header-area a {
-    color: black;
+    color: white;
 }
 .user-menu ul {
     list-style: outside none none;
@@ -73,7 +73,7 @@ body { font-family:Arial, Helvetica, sans-serif; }
     text-align: center;
 }
 
-.mainmenu-area {background: none repeat scroll 0 0 #fbfbfb;
+.mainmenu-area {background: none repeat scroll 0 0 #303942;
 font-family: "Roboto Condensed",sans-serif;
 text-transform: uppercase;
 width: 100%;
@@ -142,7 +142,7 @@ z-index: 999;}
 
 
 .mainmenu-area ul.navbar-nav li a {
-    color: #6e6a6a;
+    color: #fff;
     font-size: 14px;
     padding: 20px;
 }
@@ -617,7 +617,7 @@ padding: 35px 0 180px;}
 .newsletter-form {
     margin-top: 25px;
 }
-a {color: #e67e22}
+a {color: #303942}
 a:hover, a:focus {color: #17a78b}
 .footer-bottom-area {
   background: none repeat scroll 0 0 #000;

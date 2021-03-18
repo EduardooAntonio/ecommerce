@@ -34,7 +34,7 @@
   </head>
   <body>
    
-    <div class="header-area" style="color: red">
+    <div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#"><img src="/res/site/img/logo.png"></a></h1>
+                        <h1><a href="#"><img src="/res/site/img/logo2.png" width=24%></a></h1>
                     </div>
                 </div>
                 
