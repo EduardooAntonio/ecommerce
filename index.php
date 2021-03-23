@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once("vendor/autoload.php");
 
 use \Slim\Slim;
@@ -21,6 +21,8 @@ $app->get('/', function() {
 
 $app->get('/admin/', function() {
     
+	User::verifyLogin();
+
 	$page = new PageAdmin();
 
 	$page->setTpl("index");
@@ -46,7 +48,81 @@ $app->post('/admin/login/', function() {
 	exit;
 });
 
+$app->get('/admin/logout', function() {
+
+	User::logout();
+
+	header("Location: /admin/login");
+	exit;
+	
+});
+
+$app->get("/admin/users", function() {
+
+	User::verifyLogin();
+
+	$users = User::listAll();
+
+	$page= new PageAdmin();
+
+	$page->setTpl("users", array(
+		"users"=>$users
+
+	));
+
+
+});
+
+
+$app->get("/admin/create", function() {
+
+	User::verifyLogin();
+
+	$page= new PageAdmin();
+
+	$page->setTpl("users-create");
+
+
+});
+
+$app->get("/admin/users/:iduser", function($iduser) {
+
+	User::verifyLogin();
+
+	$page= new PageAdmin();
+
+	$page->setTpl("users-update");
+
+
+});
+
+$app->post("/admin/users/create", function() {
+
+	User::verifyLogin();
+
+
+});
+
+$app->post("/admin/users/:iduser", function($iduser) {
+
+	User::verifyLogin();
+
+	
+});
+
+$app->delete("/admin/users/:iduser", function() {
+
+	User::verifyLogin();
+
+	
+});
+
+
+
+
 
 $app->run();
+
+
 
  ?>
