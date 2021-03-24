@@ -9,3 +9,5 @@ e gerar um merge(casa os dois) e gera em uma pasta de cache para quando alguem s
 
 RAIN TPL -> Podemos usar o rain tpl para pegar o template que é o codigo html o layout e o codigo php e gerar um mege(casar os dois)
  e ai podemos dizer quais sao as configurações, diretorio de templates, diretorio de caches com a devida permissoes de pasta é essa.
+
+Entrega 1 - aula 8: Estilizaçao Básica, 1 login e 2 crud funcional
