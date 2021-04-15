@@ -6,6 +6,9 @@
     Lista de Usuários
   </h1>
 </section>
+<style type="text/css">
+    .msg-erro{color: red;}
+</style>
 
 <!-- Main content -->
 <section class="content">
@@ -18,15 +21,17 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/admin/users/<?php echo htmlspecialchars( $user["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
+        <form role="form" action="/admin/users/<?php echo htmlspecialchars( $user["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" id='form-user'>
           <div class="box-body">
             <div class="form-group">
               <label for="desperson">Nome</label>
               <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" value="<?php echo htmlspecialchars( $user["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <span class='msg-erro msg-nome'></span>
             </div>
             <div class="form-group">
               <label for="deslogin">Login</label>
               <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login"  value="<?php echo htmlspecialchars( $user["deslogin"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <span class='msg-erro msg-login'></span>
             </div>
             <div class="form-group">
               <label for="nrphone">Telefone</label>
@@ -35,6 +40,7 @@
             <div class="form-group">
               <label for="desemail">E-mail</label>
               <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail" value="<?php echo htmlspecialchars( $user["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <span class='msg-erro msg-email'></span>
             </div>
             <div class="checkbox">
               <label>
@@ -55,3 +61,4 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script type="text/javascript" src="/res/admin/dist/js/validacaoUserUpdate.js"></script>

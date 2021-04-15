@@ -23,6 +23,12 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style type="text/css">
+    .msg-erro{color: red;}
+  </style>
+
+
+
 </head>
 <body class="hold-transition login-page" style="color: red">
 <div class="login-box">
@@ -33,14 +39,14 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="/admin/login/" method="post">
+    <form action="/admin/login/" method="post" id='form-login'>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Login" name="login">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Login" id="login" name="login">
+        <span class='msg-erro msg-nome'></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+        <span class='msg-erro msg-senha'></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -52,7 +58,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" id=botao>Entrar</button>
         </div>
         <!-- /.col -->
       </div>
@@ -67,14 +73,14 @@
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
+    <a href="/admin/forgot">Esqueci a minha senha</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-
+<script type="text/javascript" src="/res/admin/dist/js/validacao.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="/res/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

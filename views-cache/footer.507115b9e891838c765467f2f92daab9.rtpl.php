@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>Hcode Store</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                        <h2>Edu Store</h2>
+                        <p>A Edu Store sempre pensa no seu cliente, e se compromete a garantir a sua compra e também a sua segurança, com os melhores preços do Brasil e entregamos a todo território nacional, Siga-nós em nossas Redes Sociais e fique por dentro de todas as novidades! </p>
                         <div class="footer-social">
-                            <a href="https://www.facebook.com/hcodebr" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="https://twitter.com/hcodebr" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/channel/UCjWENuSH2gX55-y7QSZiWxA" target="_blank"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -36,12 +36,12 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus!</p>
+                        <h2 class="footer-wid-title">Notícias</h2>
+                        <p>Inscreva seu email aqui, para receber as notícias e promoções em primeira mão do Ecommerce mais top do mundo! </p>
                         <div class="newsletter-form">
                             <form action="#">
-                                <input type="email" placeholder="Type your email">
-                                <input type="submit" value="Subscribe">
+                                <input type="email" placeholder="Digite seu email">
+                                <input type="submit" value="Inscrever-se">
                             </form>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 Hcode Treinamentos. <a href="http://www.hcode.com.br" target="_blank">hcode.com.br</a></p>
+                        <p>&copy; 2021 Edu Store. <a href="http://www.edustore.com.br" target="_blank">edustore.com.br</a></p>
                     </div>
                 </div>
                 
