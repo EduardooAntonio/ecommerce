@@ -8,6 +8,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Edu Store - Admin</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/res/site/img/favicon.ico"/>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -60,7 +62,7 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>E</b>ST</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Edu</b>&nbsp;Store</span>
     </a>
@@ -90,7 +92,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="/res/admin/dist/img/download.png" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -174,14 +176,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="/res/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="/res/admin/dist/img/download.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Administrador</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/res/admin/dist/img/download.png" class="img-circle" alt="User Image">
 
                 <p>
                   Administrador - Web Developer
@@ -231,7 +233,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/res/admin/dist/img/download.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Administrador</p>

@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edu Store</title>
+      <!-- Favicon -->
+    <link rel="shortcut icon" href="/res/site/img/favicon.ico"/>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -79,7 +81,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#"><img src="/res/site/img/logo2.png" width=24%></a></h1>
+                        <h1><a href="#"><img src="/res/site/img/icone.jpg" width=24%></a></h1>
                     </div>
                 </div>
                 

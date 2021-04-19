@@ -14,6 +14,20 @@
 
     <!-- Main content -->
     <section class="content">
+      <style type="text/css">
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+      }
+      </style>
+
+      <div>
+        <br><br><br><br><br><br><br>
+      <img src="/res/site/img/iconefundo.png"/>
+
+     </div>
 
       <!-- Your Page Content Here -->
 
