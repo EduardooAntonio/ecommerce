@@ -28,7 +28,7 @@
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Nome da Produto</th>
-                    <th>Preço</th>
+                    <th>Preço(R$)</th>
                     <th>Largura</th>
                     <th>Altura</th>
                     <th>Comprimento</th>

@@ -64,7 +64,7 @@
               <input type="file" class="form-control" id="file" name="file">  
               <div class="box box-widget">
                 <div class="box-body">
-                  <img class="img-responsive" id="image-preview" src="../res/site/img/no-product.jpg" alt="Photo">
+                  <img class="img-responsive" id="image-preview" src="/res/site/img/no-product.jpg" alt="Photo">
                 </div>
               </div>
             </div>

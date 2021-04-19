@@ -25,7 +25,6 @@
   <![endif]-->
   <style type="text/css">
     .msg-erro{color: red;}
-    b{color: white;}
   </style>
 
 
@@ -34,20 +33,11 @@
 <body class="hold-transition login-page" style="color: red">
 <div class="login-box">
   <div class="login-logo">
-    <a><b>Edu</b>&nbsp;Store</a><br>
-    <b>Admin</b> 
-    </br>
+    <a href="/res/admin/index2.html"><b>Admin</b>LTE</a>
   </div>
-  <!-- mensagem de erro funcionando -->
-   <?php if( $msgError != '' ){ ?>
-        <div class="alert alert-danger alert-dismissible" style="margin:10px">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <p><i class="fa fa-exclamation-circle"></i>&nbsp;<?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
-        </div>
-  <?php } ?>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Entre para iniciar sua sessão</p>
+    <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="/admin/login/" method="post" id='form-login'>
       <div class="form-group has-feedback">
@@ -55,14 +45,14 @@
         <span class='msg-erro msg-nome'></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Senha" id="password" name="password">
+        <input type="password" class="form-control" placeholder="Password" id="password" name="password">
         <span class='msg-erro msg-senha'></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Lembrar o acesso
+              <input type="checkbox"> Remember Me
             </label>
           </div>
         </div>
@@ -73,17 +63,18 @@
         <!-- /.col -->
       </div>
     </form>
+
     <div class="social-auth-links text-center">
-      <p>- OU -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar usando o
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
         Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Entrar usando o
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
         Google+</a>
     </div>
     <!-- /.social-auth-links -->
 
     <a href="/admin/forgot">Esqueci a minha senha</a><br>
-    <!--<a href="register.html" class="text-center">Registrar um novo membro</a> -->
+    <a href="register.html" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->

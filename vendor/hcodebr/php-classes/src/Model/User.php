@@ -15,6 +15,7 @@ class User extends Model {
    const ERROR_REGISTER = "UserErrorRegister";
    const SUCCESS = "UserSucesss";
 
+
    public static function getFromSession()
    {
 
@@ -68,6 +69,7 @@ class User extends Model {
 
       $sql = new Sql();
 
+      $error1 = 0;
 
 
       $results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
@@ -77,9 +79,19 @@ class User extends Model {
       if (empty($results))
       {
          //throw new \Exception("Usuário inexistente ou senha inválida.");
-         header("Location: /admin/login");
+         //echo '<script>alert("Ocorreu um erro!!"); </script>';
 
-         return;
+         $error1 += 1;
+
+         echo ("<script>
+                window.history.go(-1);
+               </script>");  
+         
+         //window.alert('Usuário inexistente ou senha inválida.');
+
+         //header("Location: /admin/login");
+
+         return $error1;
          
       }
 
@@ -98,14 +110,22 @@ class User extends Model {
 
          $_SESSION[User::SESSION] = $user->getValues();
 
+
          return $user;
 
       } else {
 
          //throw new \Exception("Usuário inexistente ou senha inválida.");
-         header("Location: /admin/login");
+         echo ("<script>
+                window.alert('Usuário inexistente ou senha inválida.');
+                window.history.go(-1);
+               </script>");
+
+         //header("Location: /admin/login");
       
       }
+
+      $error1 = 0;
 
    }
 
@@ -182,6 +202,8 @@ class User extends Model {
 
       $sql = new Sql();
 
+      if (strlen($this->getdespassword()) >= 5) {
+
       $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
          ":iduser"=>$this->getiduser(),
          ":desperson"=>utf8_decode($this->getdesperson()),
@@ -192,7 +214,43 @@ class User extends Model {
          ":inadmin"=>$this->getinadmin()
       ));
 
-      $this->setData($results[0]);     
+      $this->setData($results[0]);
+
+     } else {
+
+
+      $results = $sql->select("CALL sp_usersupdatenopass_save(:iduser, :desperson, :deslogin, :desemail, :nrphone, :inadmin)", array(
+         ":iduser"=>$this->getiduser(),
+         ":desperson"=>utf8_decode($this->getdesperson()),
+         ":deslogin"=>$this->getdeslogin(),
+         //":despassword"=>$this->getdespassword(),
+         //":despassword"=>User::getPasswordHash($this->getdespassword()),
+         ":desemail"=>$this->getdesemail(),
+         ":nrphone"=>$this->getnrphone(),
+         ":inadmin"=>$this->getinadmin()
+      ));
+
+      $this->setData($results[0]);
+
+     } 
+
+      
+      // como estava antes do teste
+      /*$sql = new Sql();
+
+      $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+         ":iduser"=>$this->getiduser(),
+         ":desperson"=>utf8_decode($this->getdesperson()),
+         ":deslogin"=>$this->getdeslogin(),
+         ":despassword"=>User::getPasswordHash($this->getdespassword()),
+         ":desemail"=>$this->getdesemail(),
+         ":nrphone"=>$this->getnrphone(),
+         ":inadmin"=>$this->getinadmin()
+      ));
+
+      $this->setData($results[0]);
+
+     */
 
    }
 

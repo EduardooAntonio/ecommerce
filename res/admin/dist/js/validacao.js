@@ -11,6 +11,7 @@
 
       var login = document.getElementById('login');
       var password = document.getElementById('password');
+      //var botao = document.getElementById('botao');
       var contErro = 0;
 
       var caixa_login = document.querySelector('.msg-nome');
@@ -27,13 +28,13 @@
         caixa_password.innerHTML = 'Preencher a senha!';
         caixa_password.style.display = 'block';
         contErro += 1;
-      } else if (password.value.length < 5) {
-        caixa_password.innerHTML = 'Preencher a senha com o minimo de 5 caracteres!';
-        caixa_password.style.display = 'block';
-        contErro += 1;
       } else {
         caixa_password.style.display = 'none';
       }
+
+      //teste botao
+      //var caixa_botao = document.querySelector('.msg-botao');
+      //caixa_botao.innerHTML = "Login inválido";
 
 
       if (contErro > 0) {

@@ -31,18 +31,14 @@
       }
 
       //validação senha
-      /*var caixa_despassword = document.querySelector('.msg-senha');
-      if (despassword.value == "") {
-        caixa_despassword.innerHTML = 'Preencher a senha!';
-        caixa_despassword.style.display = 'block';
-        contErro += 1;
-      } else if (despassword.value.length < 5) {
+      var caixa_despassword = document.querySelector('.msg-senha');
+      if (despassword.value.length >= 1 && despassword.value.length < 5) {
         caixa_despassword.innerHTML = 'Preencher a senha com o minimo de 5 caracteres!';
         caixa_despassword.style.display = 'block';
         contErro += 1;
       } else {
         caixa_despassword.style.display = 'none';
-      }*/
+      }
 
       //validação login
       var caixa_deslogin = document.querySelector('.msg-login');

@@ -8,6 +8,7 @@
 </section>
 <style type="text/css">
     .msg-erro{color: red;}
+    h5{color: red;}
 </style>
 
 <!-- Main content -->
@@ -42,6 +43,11 @@
               <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail" value="<?php echo htmlspecialchars( $user["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
               <span class='msg-erro msg-email'></span>
             </div>
+            <div class="form-group">
+              <label for="despassword">Senha</label>
+              <input type="password" class="form-control" id="despassword" name="despassword" placeholder="Digite a senha">
+              <span class='msg-erro msg-senha'></span>
+              <h5> AVISO: Se não quiser modificar a sua senha deixe o campo em branco!</h5>
             <div class="checkbox">
               <label>
                 <input type="checkbox" name="inadmin" value="1" <?php if( $user["inadmin"] == 1 ){ ?>checked<?php } ?>> Acesso de Administrador
