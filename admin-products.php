@@ -41,6 +41,9 @@ $app->post("/admin/products/create", function(){
 
 	/*if($_FILES["file"]["name"] !== "") $product->setPhoto($_FILES['file']);*/
 
+	$product->setPhoto($_FILES['file']);
+
+
 	header("Location: /admin/products");
 	exit;
 
@@ -53,6 +56,10 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 	$product = new Product();
 
 	$product->get((int)$idproduct);
+
+	var_dump($product->getValues());
+
+	exit;
 
 	$page = new PageAdmin();
 
@@ -75,7 +82,9 @@ $app->post("/admin/products/:idproduct", function($idproduct){
 
 	$product->save();
 
-	if($_FILES["file"]["name"] !== "") $product->setPhoto($_FILES["file"]);
+	/*if($_FILES["file"]["name"] !== "") $product->setPhoto($_FILES["file"]);*/
+
+	$product->setPhoto($_FILES["file"]);
 
 	header('Location: /admin/products');
 	exit;
