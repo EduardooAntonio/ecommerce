@@ -255,6 +255,27 @@ class User extends Model {
 
    }
 
+
+   public function updateSite()
+   {
+
+      $sql = new Sql();
+
+          $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+         ":iduser"=>$this->getiduser(),
+         ":desperson"=>utf8_decode($this->getdesperson()),
+         ":deslogin"=>$this->getdeslogin(),
+         ":despassword"=>$this->getdespassword(),
+         ":desemail"=>$this->getdesemail(),
+         ":nrphone"=>$this->getnrphone(),
+         ":inadmin"=>$this->getinadmin()
+      ));
+
+      $this->setData($results[0]);
+
+     }
+
+
    public function delete()
    {
 
