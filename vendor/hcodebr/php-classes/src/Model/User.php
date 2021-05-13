@@ -86,9 +86,10 @@ class User extends Model {
          echo ("<script>
                 window.history.go(-1);
                </script>");  
-         
+         //
          //window.alert('Usuário inexistente ou senha inválida.');
 
+         //
          //header("Location: /admin/login");
 
          return $error1;
@@ -114,13 +115,13 @@ class User extends Model {
          return $user;
 
       } else {
-
+         //
          //throw new \Exception("Usuário inexistente ou senha inválida.");
          echo ("<script>
                 window.alert('Usuário inexistente ou senha inválida.');
                 window.history.go(-1);
                </script>");
-
+         //
          //header("Location: /admin/login");
       
       }
