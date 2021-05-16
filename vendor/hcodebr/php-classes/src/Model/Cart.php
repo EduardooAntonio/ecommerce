@@ -196,12 +196,12 @@ class Cart extends Model {
 
 			if ($totals['vlheight'] < 2) $totals['vlheight'] = 2;
 			if ($totals['vllength'] < 16) $totals['vllength'] = 16;
-			if ($totals['vlwidth'] < 11) $totals['vlwidth'] = 11;
+			//if ($totals['vlwidth'] < 11) $totals['vlwidth'] = 11;
 
 			$qs = http_build_query([
         		"nCdEmpresa"=>"",
         		"sDsSenha"=>"",
-        		"nCdServico"=>"04014",
+        		"nCdServico"=>"40010",
         		"sCepOrigem"=>"09853120",
         		"sCepDestino"=>$nrzipcode,
         		"nVlPeso"=>$totals["vlweight"],
@@ -209,18 +209,18 @@ class Cart extends Model {
         		"nVlComprimento"=>$totals["vllength"],
         		"nVlAltura"=>$totals["vlheight"],
         		"nVlLargura"=>$totals["vlwidth"],
-        		"nVlDiametro"=>"30",
-        		"sCdMaoPropria"=>"N",
+        		"nVlDiametro"=>"0",
+        		"sCdMaoPropria"=>"S",
         		"nVlValorDeclarado"=>$totals["vlprice"],
-        		"sCdAvisoRecebimento"=>"N"
+        		"sCdAvisoRecebimento"=>"S"
       		]);
 
 
 
-			$xml = (array) simplexml_load_file("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?".$qs);
+			$xml = simplexml_load_file("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?".$qs);
 
 
-			echo json_encode($xml);
+			//echo json_encode($xml);
 
 			
 			$result = $xml->Servicos->cServico;
@@ -234,6 +234,7 @@ class Cart extends Model {
 
 				Cart::clearMsgError();
 
+			}
 
 				$this->setnrdays($result->PrazoEntrega);
 				$this->setvlfreight(Cart::formatValueToDecimal($result->Valor));
@@ -243,7 +244,7 @@ class Cart extends Model {
 
 				return $result;
 
-			}
+			//}
 
 		} else {
 
