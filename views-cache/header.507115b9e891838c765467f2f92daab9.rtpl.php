@@ -89,10 +89,23 @@
                         <h1><a href="/"><img src="/res/site/img/icone.jpg" width=24%></a></h1>
                     </div>
                 </div>
+
+
+               <!-- <div class="box-tools">
+                <form action="/products">
+                  <div class="input-group input-group-sm" style="width: 300px">
+                    <input type="text" name="search" class="form-control pull-left" placeholder="Olá o que você está procurando hoje?"  value= ""> 
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>  -->
+
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="/cart">Carrinho - <span class="cart-amunt">R${</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="/cart">Carrinho - <span class="cart-amunt">R$<?php echo getCartVlSubTotal(); ?></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><?php echo getCartNrQtd(); ?></span></a>
                     </div>
                 </div>
             </div>
@@ -115,6 +128,16 @@
                         <li class="active"><a href="/">Home</a></li>
                         <li><a href="#">Produtos</a></li>
                         <li><a href="/cart">Carrinho</a></li>
+                        <li><div class="box-tools">
+                <form action="/products">
+                  <div class="input-group input-group-sm" style="width: 50%">
+                    <input type="text" name="search" class="form-control pull-right" placeholder="Olá o que você está procurando hoje?"  value= ""> 
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div> </li>
                     </ul>
                 </div>  
             </div>

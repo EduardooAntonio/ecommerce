@@ -13,10 +13,64 @@ $app->get('/', function() {
 
 	$products = Product::listAll();
     
+	$cart = Cart::getFromSession();
+
 	$page = new Page();
 
 	$page->setTpl("index", [
 		'products'=>Product::checkList($products)
+	]);
+
+});
+
+$app->get("/products", function(){
+
+	User::verifyLogin();
+
+
+
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+
+
+	if ($search != '') {
+
+		$pagination = Product::getPageSearch($search, $page);
+
+
+	} else {
+
+		$pagination = Product::getPage($page);
+
+
+	}
+
+
+	$pages = [];
+
+	for ($x = 0; $x < $pagination['pages']; $x++)
+	{
+
+		array_push($pages, [
+			'href'=>'/products?'.http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+		]);
+
+	} 
+
+
+
+	$page = new Page();
+
+
+  	$page->setTpl("products", [
+		"products"=>$pagination['data'],
+		"search"=>$search,
+		"pages"=>$pages
 	]);
 
 });
@@ -520,13 +574,13 @@ $app->get("/boleto/:idorder", function($idorder) {
 	$dadosboleto["endereco2"] = $order->getdescity() . " - " . $order->getdesstate() . " - " . $order->getdescountry() . " -  CEP: " . $order->getdeszipcode();
 
 	// INFORMACOES PARA O CLIENTE
-	$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Hcode E-commerce";
+	$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Edu Store E-commerce";
 	$dadosboleto["demonstrativo2"] = "Taxa bancária - R$ 0,00";
 	$dadosboleto["demonstrativo3"] = "";
 	$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
 	$dadosboleto["instrucoes2"] = "- Receber até 10 dias após o vencimento";
-	$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: suporte@hcode.com.br";
-	$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja Hcode E-commerce - www.hcode.com.br";
+	$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: suporte@edustore.com.br";
+	$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Loja Edu Store E-commerce - www.edustore.com.br";
 
 	// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 	$dadosboleto["quantidade"] = "";
@@ -548,11 +602,11 @@ $app->get("/boleto/:idorder", function($idorder) {
 	$dadosboleto["carteira"] = "175";  // Código da Carteira: pode ser 175, 174, 104, 109, 178, ou 157
 
 	// SEUS DADOS
-	$dadosboleto["identificacao"] = "TESTE";
+	$dadosboleto["identificacao"] = "Edu Store";
 	$dadosboleto["cpf_cnpj"] = "24.700.731/0001-08";
 	$dadosboleto["endereco"] = "Rua Ademar Saraiva Leão, 234 - Alvarenga, 09853-120";
 	$dadosboleto["cidade_uf"] = "São Bernardo do Campo - SP";
-	$dadosboleto["cedente"] = "TESTE LTDA - ME";
+	$dadosboleto["cedente"] = "Edu Store LTDA - ME";
 
 	// NÃO ALTERAR!
 	$path = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "boletophp" . DIRECTORY_SEPARATOR . "include" . DIRECTORY_SEPARATOR;
