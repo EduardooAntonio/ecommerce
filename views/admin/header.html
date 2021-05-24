@@ -261,6 +261,7 @@ desired effect
         <li><a href="/admin/users"><i class="fa fa-user"></i> <span>Usuários</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-list-alt"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-shopping-cart"></i> <span>Produtos</span></a></li>
+        <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
         <li><a href="/admin/reports"><i class="fa fa-file-pdf-o"></i> <span>Relatórios</span></a></li>
         <!-- <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>

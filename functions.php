@@ -8,6 +8,11 @@ function formatPrice($vLprice) {
 	return number_format($vLprice, 2, ",", ".");
 }
 
+function formatDate($date) {
+
+	return date ('d/m/Y', strtotime($date));
+}
+
 
 function checkLogin($inadmin = true) {
 
