@@ -2,6 +2,7 @@
 
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
+use \Hcode\Model\Order;
 
 
 $app->get('/admin/', function() {
@@ -10,7 +11,20 @@ $app->get('/admin/', function() {
 
 	$page = new PageAdmin();
 
-	$page->setTpl("index");
+	$order = Order::getGraph();
+
+	$pg = [];
+
+	for ($i=0; $i <= $order['nrtotal']; $i++) { 
+		array_push($pg, [
+			'nr'=>$pg
+		]);
+	}
+
+	$page->setTpl("index", [
+		'order'=>$order['data'],
+		'pg'=>$pg
+	]);
 
 });
 

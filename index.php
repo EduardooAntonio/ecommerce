@@ -19,6 +19,8 @@ require_once("admin-category.php");
 
 require_once("admin-product.php");
 
+require_once("admin-reports.php");
+
 require_once("functions.php");
 
 

@@ -207,6 +207,34 @@ class Order extends Model {
 
 	}
 
+	public static function getGraph()
+		{
+
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
+							FROM tb_orders GROUP BY dia");
+
+		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+		return [
+            'data'=>$results,
+            'nrtotal'=>(int)$resultTotal[0]["nrtotal"]
+			];
+		}
+
+
+
+	/*	public static function getGraph()
+		{
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
+							FROM tb_orders GROUP BY dia");
+	}*/
+
 }
+
 
 ?>

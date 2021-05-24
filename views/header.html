@@ -90,8 +90,8 @@
                     </div>
                 </div>
 
-
-               <!-- <div class="box-tools">
+                <div class="flex">
+                <div class="box-tools">
                 <form action="/products">
                   <div class="input-group input-group-sm" style="width: 300px">
                     <input type="text" name="search" class="form-control pull-left" placeholder="Olá o que você está procurando hoje?"  value= ""> 
@@ -100,7 +100,8 @@
                     </div>
                   </div>
                 </form>
-              </div>  -->
+            </div>
+              </div>  
 
                 
                 <div class="col-sm-6">
@@ -129,6 +130,8 @@
                         <li><a href="#">Produtos</a></li>
                         <li><a href="/cart">Carrinho</a></li>
                         <li><div class="box-tools">
+
+                <div class="flex">
                 <form action="/products">
                   <div class="input-group input-group-sm" style="width: 50%">
                     <input type="text" name="search" class="form-control pull-right" placeholder="Olá o que você está procurando hoje?"  value= ""> 
@@ -137,6 +140,10 @@
                     </div>
                   </div>
                 </form>
+            </div>
+
+
+
               </div> </li>
                     </ul>
                 </div>  

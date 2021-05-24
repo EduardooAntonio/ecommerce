@@ -259,7 +259,6 @@ class Product extends Model {
 
 	}*/
 
-
 }
 
 

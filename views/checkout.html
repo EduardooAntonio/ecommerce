@@ -1,4 +1,31 @@
 
+<script>
+            function getDadosEnderecoPorCEP(cep) {
+                let url = 'https://viacep.com.br/ws/'+cep+'/json/unicode/'
+
+                let xmlHttp = new XMLHttpRequest()
+                xmlHttp.open('GET', url)
+
+                xmlHttp.onreadystatechange = () => {
+                    if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        let dadosJSONText = xmlHttp.responseText
+                        let dadosJSONObj = JSON.parse(dadosJSONText)
+
+                        document.getElementById('billing_address_1').value = dadosJSONObj.logradouro
+                        document.getElementById('billing_address_2').value = dadosJSONObj.complemento
+                        document.getElementById('billing_district').value = dadosJSONObj.bairro
+                        document.getElementById('billing_city').value = dadosJSONObj.localidade
+                        document.getElementById('billing_state').value = dadosJSONObj.uf
+
+                        
+                    }
+                }
+
+                xmlHttp.send()
+            }
+ </script>
+
+
 <div class="product-big-title-area">
 	<div class="container">
 		<div class="row">
@@ -30,9 +57,9 @@
 										<p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
 											<label class="" for="billing_address_1">Cep <abbr title="required" class="required">*</abbr>
 											</label>
-                                            <input type="text" value="{$cart.deszipcode}" placeholder="00000-000" id="billing_address_1" name="zipcode" class="input-text ">
-                                            <input type="submit" value="Atualizar CEP" id="place_order" class="button alt" formaction="/checkout" formmethod="get">
-										</p>
+                                            <input type="text" value="{$cart.deszipcode}" placeholder="00000-000" id="billing_address" onblur="getDadosEnderecoPorCEP(this.value)" name="zipcode" class="input-text ">
+                                            <!--<input type="submit" value="Atualizar CEP" id="place_order" class="button alt" formaction="/checkout" formmethod="get"> -->
+										</p> 
 										<p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
 											<label class="" for="billing_address_1">Endereço <abbr title="required" class="required">*</abbr>
 											</label>
@@ -57,7 +84,8 @@
 										</p>
 										<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
 											<label class="" for="billing_state">País</label>
-											<input type="text" id="billing_state" name="descountry" placeholder="País" value="{$address.descountry}" class="input-text ">
+											<input type="text" id="billing_state" name="descountry" placeholder="País" value="Brasil" class="input-text ">
+										</p>
 										</p>
 										<div class="clear"></div>
 										<h3 id="order_review_heading" style="margin-top:30px;">Detalhes do Pedido</h3>
