@@ -13,17 +13,20 @@ $app->get('/admin/', function() {
 
 	$order = Order::getGraph();
 
-	$pg = [];
+	//$pg = [];
 
-	for ($i=0; $i <= $order['nrtotal']; $i++) { 
-		array_push($pg, [
-			'nr'=>$pg
-		]);
-	}
+	//for ($i=0; $i <= $order['nrtotal']; $i++) { 
+	//	array_push($pg, [
+	//		'nr'=>$pg
+	//	]);
+	//}
+
+	//var_dump();
+	//exit;
 
 	$page->setTpl("index", [
-		'order'=>$order['data'],
-		'pg'=>$pg
+		'order'=>$order['data']
+		//'pg'=>$pg
 	]);
 
 });

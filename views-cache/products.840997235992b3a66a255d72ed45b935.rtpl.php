@@ -18,19 +18,29 @@
   	<div class="col-md-12">
   		<div class="box box-primary">
             
-            <div class="box-header">
+            <div class="flex-container">
               <a href="/admin/products/create" class="btn btn-success">Cadastrar Produto</a>
+              <div class="flex-container">
               <div class="box-tools">
                 <form action="/admin/products">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                  <div class="input-group input-group-sm" style="width: 150px;"> 
+                    <input type="text" name="search" class="form-control pull-right" placeholder="Procurar" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+
+                    <select id="box" name="box" class="form-control pull-right">
+                    <option> Nome </option>
+                    <option> Preço </option>
+                    <option> Peso </option>
+
+                    </select>
                     <div class="input-group-btn">
                       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                      
                     </div>
                   </div>
                 </form>
               </div>
             </div>
+          </div>
 
             <div class="box-body no-padding">
               <table class="table table-striped">

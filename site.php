@@ -378,7 +378,7 @@ $app->post("/login", function () {
 	}
 
 
-	header("Location: /checkout");
+	header("Location: /profile");
 	exit;
 
 });
@@ -468,6 +468,8 @@ $app->post("/register", function() {
 $app->get("/profile", function() {
 
 	User::verifyLogin(false);
+
+	User::setError("");
 
 	$user = User::getFromSession();
 

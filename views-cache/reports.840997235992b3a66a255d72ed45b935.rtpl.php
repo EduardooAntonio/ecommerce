@@ -33,9 +33,9 @@
                         <tbody>
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório tal</td>
+                            <td>Relatório de Produtos</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
+                                <a href="/admin/reports/products" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>
                             </tr>
 

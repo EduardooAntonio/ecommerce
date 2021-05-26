@@ -89,7 +89,7 @@
                         <h1><a href="/"><img src="/res/site/img/icone.jpg" width=24%></a></h1>
                     </div>
                 </div>
-
+                <!--
                 <div class="flex">
                 <div class="box-tools">
                 <form action="/products">
@@ -101,7 +101,7 @@
                   </div>
                 </form>
             </div>
-              </div>  
+              </div>  -->
 
                 
                 <div class="col-sm-6">
@@ -127,7 +127,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
-                        <li><a href="#">Produtos</a></li>
+                        <li><a href="/products">Produtos</a></li>
                         <li><a href="/cart">Carrinho</a></li>
                         <li><div class="box-tools">
 

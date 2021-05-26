@@ -259,6 +259,20 @@ class Product extends Model {
 
 	}*/
 
+
+	public static function getReportsProducts()
+    {
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT idproduct, desproduct, vlprice, dtregister FROM tb_products");
+
+        return $results;
+
+
+    }
+
+
 }
 
 

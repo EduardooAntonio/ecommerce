@@ -25,6 +25,8 @@ require_once("admin-orders.php");
 
 require_once("functions.php");
 
+require_once("fpdf.php");
+
 
 $app->run();
 
