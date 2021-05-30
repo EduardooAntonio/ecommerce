@@ -11,7 +11,10 @@ $app->get('/admin/', function() {
 
 	$page = new PageAdmin();
 
-	$order = Order::getGraph();
+	$order = Order::GetGraph();
+
+	//var_dump($order);
+	//exit;
 
 	//$pg = [];
 
@@ -21,13 +24,14 @@ $app->get('/admin/', function() {
 	//	]);
 	//}
 
-	//var_dump();
-	//exit;
+	
 
 	$page->setTpl("index", [
 		'order'=>$order['data']
-		//'pg'=>$pg
+		//'tot'=>$tot
 	]);
+
+
 
 });
 

@@ -10,17 +10,22 @@ $app->get("/admin/products", function(){
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+	$boxx = (isset($_GET['boxx'])) ? $_GET['boxx'] : "";
+
+	//$_GET['boxx'];
+
+	//var_dump($boxx);
+	//exit;
 
 	if ($search != '') {
 
-		$pagination = Product::getPageSearch($search, $page, 10);
+		$pagination = Product::getPageSearchBox($boxx, $search, $page, 10);
 
 	} else {
 
 		$pagination = Product::getPage($page, 10);
 
 	}
-
 
 	$pages = [];
 
@@ -29,22 +34,25 @@ $app->get("/admin/products", function(){
 		array_push($pages, [
 			'href'=>'/admin/products?'.http_build_query([
 				'page'=>$x+1,
-				'search'=>$search
+				'search'=>$search,
+				'boxx'=>$boxx
 			]),
-			'text'=>$x+1
+			'text'=>$x+1,
 		]);
 	}
 
+	//var_dump($pagination['data']);
+	//exit;
 
 	$page = new PageAdmin();
 
 	$page->setTpl("products", [
 		"products"=>$pagination['data'],
 		"search"=>$search,
-		"pages"=>$pages
-
-
+		"pages"=>$pages,
+		"boxx"=>$boxx
 	]);
+
 
 });
 
@@ -86,9 +94,8 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 
 	$product->get((int)$idproduct);
 
-	var_dump($product->getValues());
-
-	exit;
+	//var_dump($product->getValues());
+	//exit;
 
 	$page = new PageAdmin();
 

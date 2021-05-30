@@ -206,6 +206,7 @@ class Product extends Model {
 
         $sql = new Sql();
 
+
         $results = $sql->select("
             SELECT SQL_CALC_FOUND_ROWS *
             FROM tb_products
@@ -228,6 +229,46 @@ class Product extends Model {
             'data'=>Product::checkList($results),
             'total'=>(int)$resultTotal[0]["nrtotal"],
             'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+        ];
+
+    }
+
+
+        public static function getPageSearchBox($boxx, $search, $page = 1, $itemsPerPage = 8)
+    {
+
+        $start = ($page - 1) * $itemsPerPage;
+
+        $sql = new Sql();
+
+
+        $results = $sql->select("
+            SELECT SQL_CALC_FOUND_ROWS *
+            FROM tb_products
+            WHERE $boxx LIKE :search 
+            ORDER BY desproduct
+            LIMIT $start, $itemsPerPage;
+        ", [
+            ':search'=>'%'.$search.'%'
+            //':boxx'=>$boxx
+        ]);
+
+        //var_dump($results);
+        //exit;
+
+        $resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+        foreach ($results as &$result) {
+            
+        $result['desphoto'] = "/res/site/img/products/" .$result['idproduct'] . ".jpg";
+ 
+        }
+
+        return [
+            'data'=>Product::checkList($results),
+            'total'=>(int)$resultTotal[0]["nrtotal"],
+            'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage),
+            'boxx'=>$boxx
         ];
 
     }
@@ -266,6 +307,19 @@ class Product extends Model {
         $sql = new Sql();
 
         $results = $sql->select("SELECT idproduct, desproduct, vlprice, dtregister FROM tb_products");
+
+        return $results;
+
+
+    }
+
+
+    public static function getReportsProductsID()
+    {
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT idproduct FROM tb_products");
 
         return $results;
 

@@ -10,10 +10,11 @@ $app->get("/admin/users", function() {
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+	$boxx = (isset($_GET['boxx'])) ? $_GET['boxx'] : "";
 
 	if ($search != '') {
 
-		$pagination = User::getPageSearch($search, $page, 10);
+		$pagination = User::getPageSearchBox($boxx, $search, $page, 10);
 
 	} else {
 
@@ -40,7 +41,8 @@ $app->get("/admin/users", function() {
 	$page->setTpl("users", array(
 		"users"=>$pagination['data'],
 		"search"=>$search,
-		"pages"=>$pages
+		"pages"=>$pages,
+		"boxx"=>$boxx
 
 	));
 

@@ -23,7 +23,18 @@
               <div class="box-tools">
                 <form action="/admin/users">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="search" class="form-control pull-right" placeholder="Procurar" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+
+                    <select type="text" name="boxx" class="form-control pull-right" value="<?php echo htmlspecialchars( $boxx, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <option value="b.desperson"> Nome </option>
+                    <option value="b.desemail"> E-mail </option>
+                    <option value="a.deslogin"> Login </option>
+                    <option value="a.iduser"> ID </option>
+                    <option value="a.inadmin"> Admin </option>
+                    
+                    </select>
+
+
                     <div class="input-group-btn">
                       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                     </div>
@@ -31,7 +42,7 @@
                 </form>
               </div>
             </div>
-
+            <br>
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <thead>

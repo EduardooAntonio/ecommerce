@@ -212,10 +212,11 @@ class Order extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
+		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
 							FROM tb_orders GROUP BY dia");
 
 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
 
 		return [
             'data'=>$results,
