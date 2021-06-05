@@ -1,10 +1,6 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
   
-  &lt;?php
-   include 'admin.php';
-   $order = Order::GetGraph();
-   echo $order['data'];
-   ?&gt;
+  
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -17,40 +13,41 @@
         <li class="active">Here</li>
       </ol>
      <!-- -->
-      <?php $counter1=-1;  if( isset($order) && ( is_array($order) || $order instanceof Traversable ) && sizeof($order) ) foreach( $order as $key1 => $value1 ){ $counter1++; ?>
-         <br>
-         <h1><?php echo htmlspecialchars( $value1["dia"], ENT_COMPAT, 'UTF-8', FALSE ); ?> / <?php echo htmlspecialchars( $value1["total"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h1>
+      <script type="text/javascript">
+          var x = [];
+
+      </script>
+       <?php $counter1=-1;  if( isset($order) && ( is_array($order) || $order instanceof Traversable ) && sizeof($order) ) foreach( $order as $key1 => $value1 ){ $counter1++; ?>
+        <script type="text/javascript"> 
+          
+        
+          x.push(['<?php echo htmlspecialchars( $value1["dia"], ENT_COMPAT, 'UTF-8', FALSE ); ?>', <?php echo htmlspecialchars( $value1["total"], ENT_COMPAT, 'UTF-8', FALSE ); ?>]);
+          
+         
+        </script>
+        <?php } ?>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
+      
 
 
       function drawChart() {
 
+
+       
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Dia');
-      data.addColumn('string', 'total');
+      data.addColumn('number', 'total');
 
-
-      for (var i = 0; i < 4; i++) {
-        data.addRows([
-        ['<?php echo htmlspecialchars( $value1["dia"], ENT_COMPAT, 'UTF-8', FALSE ); ?>', '<?php echo htmlspecialchars( $value1["total"], ENT_COMPAT, 'UTF-8', FALSE ); ?>']
-
-
-      ]);  
-      }
-      
+      data.addRows(x);
 
         
+        
+        
 
-        //  var data = google.visualization.arrayToDataTable([
-        //  ['Dia', 'Valor'],
-        //  [dia, total]
-       // ]);
-        
-        
 
         var options = {
           chart: {
@@ -63,7 +60,7 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
-    <?php } ?>
+    
     <!-- grafico de pizza <div id="piechart" style="width: 2000px; height: 800px;"></div> -->
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
     

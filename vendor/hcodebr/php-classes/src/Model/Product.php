@@ -306,7 +306,7 @@ class Product extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT idproduct, desproduct, vlprice, dtregister FROM tb_products");
+        $results = $sql->select("SELECT idproduct AS id, desproduct AS nome, vlprice AS preco, dtregister AS data FROM tb_products");
 
         return $results;
 

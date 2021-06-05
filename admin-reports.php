@@ -26,22 +26,70 @@ $app->get("/admin/reports/products", function() {
 
 	User::verifyLogin();
 
-	$product = Product::getReportsProducts();
+	$allproduct = Product::getReportsProducts();
 
-	//$sql = new Sql();
+	//var_dump($product);
+	//die;
 
-	//$results = $sql->select("SELECT idproduct FROM tb_products WHERE idproduct = :idproduct", array(
-		//':idproduct'=>$resu->getidproduct()
-	//));
+	$sql = new Sql();
 
-	//var_dump($results);
-	//exit;
 
 	// INSTACIAR A CLASSE DOM PDF
 	$pdf = new Dompdf();
-	
 
-	$pdf->loadHtml('<h1> Primeiro exemplo </h1>');
+
+	$html = "
+
+	<style>
+		table {
+    	font-family: arial, sans-serif;
+    	border-collapse: collapse;
+    	width: 100%;
+	}
+
+	td, th {
+    	border: 1px solid #black;
+    	text-align: left;
+	}
+
+    </style>
+
+	<h1>
+	Relatório de Produtos
+	</h1>
+	<table>
+  	<tr style='background-color: gray'>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço(R$)</th>
+    <th>Data Registro</th>
+  </tr>
+
+	";
+
+	foreach ($allproduct as $product) {
+
+	 $html .= '
+  	<tr>
+   		<td>'.$product["id"].'</td>
+   		<td>'.$product["nome"].'</td>
+   		<td>'.$product["preco"].'</td>
+   		<td>'.$product["data"].'</td>
+  	</tr>
+
+ ';
+}
+
+
+
+
+
+	$html .= '</table>';
+
+
+
+
+	$pdf->loadHtml($html);
 
 
 	//RENDERIZAR O HTML

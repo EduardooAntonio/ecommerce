@@ -1,10 +1,6 @@
 <!-- Content Wrapper. Contains page content -->
   
-  <?php
-   include 'admin.php';
-   $order = Order::GetGraph();
-   echo $order['data'];
-   ?>
+  
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -17,40 +13,41 @@
         <li class="active">Here</li>
       </ol>
      <!-- -->
-      {loop="$order"}
-         <br>
-         <h1>{$value.dia} / {$value.total}</h1>
+      <script type="text/javascript">
+          var x = [];
+
+      </script>
+       {loop="$order"}
+        <script type="text/javascript"> 
+          
+        
+          x.push(['{$value.dia}', {$value.total}]);
+          
+         
+        </script>
+        {/loop}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
+      
 
 
       function drawChart() {
 
+
+       
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Dia');
-      data.addColumn('string', 'total');
+      data.addColumn('number', 'total');
 
-
-
-        data.addRows([
-        ['{$value.dia}', '{$value.total}']
-
-
-      ]);  
-      
-      
+      data.addRows(x);
 
         
+        
+        
 
-        //  var data = google.visualization.arrayToDataTable([
-        //  ['Dia', 'Valor'],
-        //  [dia, total]
-       // ]);
-        
-        
 
         var options = {
           chart: {
@@ -63,7 +60,7 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
-    {/loop}
+    
     <!-- grafico de pizza <div id="piechart" style="width: 2000px; height: 800px;"></div> -->
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
     
