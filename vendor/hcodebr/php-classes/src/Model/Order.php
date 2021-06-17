@@ -226,14 +226,37 @@ class Order extends Model {
 
 
 
-	/*	public static function getGraph()
+	public static function getReportsOrders()
+    {
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT a.idorder AS id, f.desperson AS nome, a.vltotal AS total, b.desstatus AS stats, a.dtregister AS data
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus)
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			ORDER BY a.dtregister DESC;
+			");
+
+        return $results;
+
+
+    }
+
+
+    public static function getOrdersValueAndDay()
 		{
 
 		$sql = new Sql();
 
-		return $sql->select("SELECT extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
+		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS dtregister AS dia, SUM(vltotal) AS total 
 							FROM tb_orders GROUP BY dia");
-	}*/
+
+		return $results;
+	}
 
 }
 

@@ -151,6 +151,19 @@ public function getProductsPage($page = 1, $itemsPerPage = 8)
 		]);
 	}
 
+
+	public static function getReportsCAtegories()
+    {
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT idcategory AS id, descategory AS nome, dtregister AS data FROM tb_categories");
+
+        return $results;
+
+
+    }
+
 }
 
 

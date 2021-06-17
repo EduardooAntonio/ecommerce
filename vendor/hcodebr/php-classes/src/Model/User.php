@@ -618,6 +618,21 @@ class User extends Model {
 
    }
 
+   public static function getReportsUsers()
+    {
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT idperson AS id, desperson AS nome, desemail AS email, nrphone AS fone, dtregister AS data FROM tb_persons");
+
+        return $results;
+
+
+    }
+
+
+
+
 }
 
 

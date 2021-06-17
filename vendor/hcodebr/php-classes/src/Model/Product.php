@@ -312,21 +312,6 @@ class Product extends Model {
 
 
     }
-
-
-    public static function getReportsProductsID()
-    {
-
-        $sql = new Sql();
-
-        $results = $sql->select("SELECT idproduct FROM tb_products");
-
-        return $results;
-
-
-    }
-
-
 }
 
 

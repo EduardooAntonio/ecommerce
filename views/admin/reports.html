@@ -17,7 +17,7 @@
         <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                <h3 class="box-title">Gerar Relatório em pdf</h3>
+                <h3 class="box-title">Gerar Relatórios em pdf</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -41,33 +41,33 @@
 
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório tal</td>
+                            <td>Relatório de Usuários</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
+                                <a href="/admin/reports/users" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>
                             </tr>
 
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório tal</td>
+                            <td>Relatório de Categorias</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
+                                <a href="/admin/reports/categories" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>
                             </tr>
 
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório tal</td>
+                            <td>Relatório de Pedidos</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
+                                <a href="/admin/reports/orders" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>
                             </tr>
 
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório tal</td>
+                            <td>Relatório de Total de vendas nos ultimos dias</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
+                                <a href="/admin/reports/orders-value" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>
                             </tr>
                         </tbody>
