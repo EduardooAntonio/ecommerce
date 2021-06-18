@@ -4,13 +4,13 @@ use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Product;
 
-$app->get("/admin/products", function(){
+/*$app->get("/admin/products", function(){
 
 	User::verifyLogin();
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
-	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 	$boxx = (isset($_GET['boxx'])) ? $_GET['boxx'] : "";
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 
 	//$_GET['boxx'];
 
@@ -51,6 +51,64 @@ $app->get("/admin/products", function(){
 		"search"=>$search,
 		"pages"=>$pages,
 		"boxx"=>$boxx
+	]);
+
+
+});*/
+
+$app->get("/admin/products", function(){
+
+	User::verifyLogin();
+
+	$id = (isset($_GET['id'])) ? $_GET['id'] : "";
+	$nome = (isset($_GET['nome'])) ? $_GET['nome'] : "";
+	$preco = (isset($_GET['preco'])) ? $_GET['preco'] : "";
+	$peso = (isset($_GET['peso'])) ? $_GET['peso'] : "";
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+	//$_GET['boxx'];
+
+	//var_dump($id, $nome, $preco, $peso);
+	//exit;
+
+	if ($id != '' || $nome != '' || $preco != '' || $peso != '') {
+
+		$pagination = Product::getPageSearchBox($id, $nome, $preco, $peso, $page, 10);
+
+	} else {
+
+		$pagination = Product::getPage($page, 10);
+
+	}
+
+	$pages = [];
+
+	for ($x = 0; $x < $pagination['pages']; $x++) {
+
+		array_push($pages, [
+			'href'=>'/admin/products?'.http_build_query([
+				'page'=>$x+1,
+				'id'=>$id,
+				'nome'=>$nome,
+				'preco'=>$preco,
+				'peso'=>$peso
+			]),
+			'text'=>$x+1,
+		]);
+	}
+
+	//var_dump($pagination['data']);
+	//exit;
+
+	$page = new PageAdmin();
+
+	$page->setTpl("products", [
+		"products"=>$pagination['data'],
+		"pages"=>$pages,
+		"id"=>$id,
+		"nome"=>$nome,
+		"preco"=>$preco,
+		"peso"=>$peso
 	]);
 
 

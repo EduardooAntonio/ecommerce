@@ -23,22 +23,26 @@
               <div class="box-tools">
                 <form action="/admin/products">
                   <div class="input-group input-group-sm" style="width: 150px;"> 
-                    <input type="text" name="search" class="form-control pull-right" placeholder="Procurar" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-
-                    <select type="text" name="boxx" class="form-control pull-right" value="<?php echo htmlspecialchars( $boxx, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                    <option value="desproduct"> Nome </option>
-                    <option value="vlprice"> Preço </option>
-                    <option value="vlweight"> Peso </option>
-                    
-                    </select>
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
+                    <input type="text" name="id" class="form-control pull-right" placeholder="ID" value="<?php echo htmlspecialchars( $id, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="nome" class="form-control pull-right" placeholder="Nome" value="<?php echo htmlspecialchars( $nome, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="preco" class="form-control pull-right" placeholder="Preço" value="<?php echo htmlspecialchars( $preco, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="peso" class="form-control pull-right" placeholder="Peso" value="<?php echo htmlspecialchars( $peso, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                   </div>
-                </form>
+                <div class="input-group input-group-sm" style="width: 150px;"> 
+                    
+                </div>
+                <div class="input-group input-group-sm" style="width: 150px;"> 
+                  
+                </div>
+                <div class="input-group input-group-sm" style="width: 150px;"> 
+                  
+                    <button type="submit" class="btn btn-default" style="width: 150px;"><i class="fa fa-search"></i></button>
+                </div>
+              </form>
               </div>
             </div>
-            <br>
+            <br><br><br><br><br>
+
 
             <div class="box-body no-padding">
               <table class="table table-striped">

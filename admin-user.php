@@ -8,13 +8,17 @@ $app->get("/admin/users", function() {
 
 	User::verifyLogin();
 
-	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+	$id = (isset($_GET['id'])) ? $_GET['id'] : "";
+	$nome = (isset($_GET['nome'])) ? $_GET['nome'] : "";
+	$email = (isset($_GET['email'])) ? $_GET['email'] : "";
+	$login = (isset($_GET['login'])) ? $_GET['login'] : "";
+	$admin = (isset($_GET['admin'])) ? $_GET['admin'] : "";
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
-	$boxx = (isset($_GET['boxx'])) ? $_GET['boxx'] : "";
+	
 
-	if ($search != '') {
+	if ($id != '' || $nome != '' || $email != '' || $login != '' || $admin != '') {
 
-		$pagination = User::getPageSearchBox($boxx, $search, $page, 10);
+		$pagination = User::getPageSearchBox($id, $nome, $email, $login, $admin, $page, 10);
 
 	} else {
 
@@ -30,7 +34,11 @@ $app->get("/admin/users", function() {
 		array_push($pages, [
 			'href'=>'/admin/users?'.http_build_query([
 				'page'=>$x+1,
-				'search'=>$search
+				'id'=>$id,
+				'nome'=>$nome,
+				'email'=>$email,
+				'login'=>$login,
+				'admin'=>$admin
 			]),
 			'text'=>$x+1
 		]);
@@ -40,10 +48,12 @@ $app->get("/admin/users", function() {
 
 	$page->setTpl("users", array(
 		"users"=>$pagination['data'],
-		"search"=>$search,
 		"pages"=>$pages,
-		"boxx"=>$boxx
-
+		"id"=>$id,
+		"nome"=>$nome,
+		"email"=>$email,
+		"login"=>$login,
+		"admin"=>$admin
 	));
 
 

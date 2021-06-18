@@ -234,7 +234,7 @@ class Product extends Model {
     }
 
 
-        public static function getPageSearchBox($boxx, $search, $page = 1, $itemsPerPage = 8)
+        public static function getPageSearchBox($id, $nome, $preco, $peso, $page = 1, $itemsPerPage = 8)
     {
 
         $start = ($page - 1) * $itemsPerPage;
@@ -245,12 +245,17 @@ class Product extends Model {
         $results = $sql->select("
             SELECT SQL_CALC_FOUND_ROWS *
             FROM tb_products
-            WHERE $boxx LIKE :search 
+            WHERE idproduct LIKE :id
+			AND desproduct LIKE :nome
+			AND vlprice LIKE :preco
+			AND vlweight LIKE :peso
             ORDER BY desproduct
             LIMIT $start, $itemsPerPage;
         ", [
-            ':search'=>'%'.$search.'%'
-            //':boxx'=>$boxx
+            ':id'=>'%'.$id.'%',
+            ':nome'=>'%'.$nome.'%',
+            ':preco'=>'%'.$preco.'%',
+            ':peso'=>'%'.$peso.'%'
         ]);
 
         //var_dump($results);
@@ -268,7 +273,6 @@ class Product extends Model {
             'data'=>Product::checkList($results),
             'total'=>(int)$resultTotal[0]["nrtotal"],
             'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage),
-            'boxx'=>$boxx
         ];
 
     }

@@ -23,26 +23,24 @@
               <div class="box-tools">
                 <form action="/admin/users">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="search" class="form-control pull-right" placeholder="Procurar" value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-
-                    <select type="text" name="boxx" class="form-control pull-right" value="<?php echo htmlspecialchars( $boxx, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                    <option value="b.desperson"> Nome </option>
-                    <option value="b.desemail"> E-mail </option>
-                    <option value="a.deslogin"> Login </option>
-                    <option value="a.iduser"> ID </option>
-                    <option value="a.inadmin"> Admin </option>
-                    
+                    <input type="text" name="id" class="form-control pull-right" placeholder="ID" value="<?php echo htmlspecialchars( $id, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="nome" class="form-control pull-right" placeholder="Nome" value="<?php echo htmlspecialchars( $nome, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="email" class="form-control pull-right" placeholder="Email" value="<?php echo htmlspecialchars( $email, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <input type="text" name="login" class="form-control pull-right" placeholder="Login" value="<?php echo htmlspecialchars( $login, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                   <select type="text" name="admin" class="form-control pull-right" placeholder="Admin" value="<?php echo htmlspecialchars( $admin, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <option value=""> Admin: Todos </option>
+                    <option value="1"> Admin : Sim</option>
+                    <option value="0"> Admin : Não </option>  
                     </select>
-
-
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
+                    <div class="input-group input-group-sm" style="width: 150px;"> 
+                  
+                    <button type="submit" class="btn btn-default" style="width: 150px;"><i class="fa fa-search"></i></button>
+                </div>
                   </div>
                 </form>
               </div>
             </div>
-            <br>
+            <br><br><br><br><br><br><br><br>
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <thead>
