@@ -65,7 +65,7 @@
 
                             <tr>
                             <td>PDF</td>
-                            <td>Relatório de Total de vendas nos ultimos dias</td>
+                            <td>Relatório de Valor de Vendas por dia</td>
                             <td>
                                 <a href="/admin/reports/orders-value" class="btn btn-primary btn-xs pull-right"><i class="fa fa-file-pdf-o"></i> Gerar PDF</a>
                             </td>

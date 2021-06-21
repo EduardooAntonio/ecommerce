@@ -402,7 +402,7 @@ $app->get("/admin/reports/orders-value", function() {
     </style>
 
 	<h1>
-	&nbsp;&nbsp;&nbsp;&nbsp;Relatório de Pedidos
+	&nbsp;&nbsp;&nbsp;&nbsp;Relatório de Valor de vendas por dia
 	</h1>
 	<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Edu Store </h2>
 	<table>
@@ -417,7 +417,7 @@ $app->get("/admin/reports/orders-value", function() {
 
 	 $html .= '
   	<tr style="background-color: #d4d4d4">
-   		<td>&nbsp;'.$order["dia"].'</td>
+   		<td>&nbsp;'.$order["dia"].'/'.$order["mes"].'/'.$order["ano"].'</td>
    		<td>&nbsp;'.$order["total"].'</td>
   	</tr>
 

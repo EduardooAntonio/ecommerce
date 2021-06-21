@@ -21,7 +21,7 @@
         <script type="text/javascript"> 
           
         
-          x.push(['<?php echo htmlspecialchars( $value1["dia"], ENT_COMPAT, 'UTF-8', FALSE ); ?>', <?php echo htmlspecialchars( $value1["total"], ENT_COMPAT, 'UTF-8', FALSE ); ?>]);
+          x.push(['<?php echo htmlspecialchars( $value1["dia"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/<?php echo htmlspecialchars( $value1["mes"], ENT_COMPAT, 'UTF-8', FALSE ); ?>', <?php echo htmlspecialchars( $value1["total"], ENT_COMPAT, 'UTF-8', FALSE ); ?>]);
           
          
         </script>
@@ -40,7 +40,7 @@
        
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Dia');
-      data.addColumn('number', 'total');
+      data.addColumn('number', 'Total(R$)');
 
       data.addRows(x);
 
@@ -51,7 +51,7 @@
 
         var options = {
           chart: {
-            title: 'Vendas do Mês',
+            title: 'Valor de vendas da semana',
           }
         };
 
@@ -62,7 +62,7 @@
     </script>
     
     <!-- grafico de pizza <div id="piechart" style="width: 2000px; height: 800px;"></div> -->
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    <div id="columnchart_material" style="width: 1400px; height: 600px;"></div>
     
     </section>
     

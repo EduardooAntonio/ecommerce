@@ -138,7 +138,7 @@ class Cart extends Model {
 		]);
 	}
 
-	$this->updateFreight();
+	//$this->updateFreight();
 
 }
 

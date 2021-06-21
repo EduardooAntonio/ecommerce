@@ -212,8 +212,8 @@ class Order extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS extract(DAY FROM dtregister) AS dia, SUM(vltotal) AS total 
-							FROM tb_orders GROUP BY dia");
+		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS extract(DAY FROM dtregister) AS dia, extract(MONTH FROM dtregister) AS mes, SUM(vltotal) AS total 
+							FROM tb_orders WHERE dtregister BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE()+1 GROUP BY dia ORDER BY dia LIMIT 7");
 
 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
@@ -252,8 +252,8 @@ class Order extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS dtregister AS dia, SUM(vltotal) AS total 
-							FROM tb_orders GROUP BY dia");
+		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS extract(DAY FROM dtregister) AS dia, extract(MONTH FROM dtregister) AS mes, extract(YEAR FROM dtregister) AS ano, SUM(vltotal) AS total 
+							FROM tb_orders GROUP BY dia ORDER BY mes DESC,dia DESC");
 
 		return $results;
 	}

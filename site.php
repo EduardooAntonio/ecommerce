@@ -355,6 +355,7 @@ $app->get("/login", function () {
 	$page->setTpl("login", [
 		'msgError'=>User::getError(),
 		'errorRegister'=>User::getErrorRegister(),
+		'sucessRegister'=>User::getSuccess(),
 		'registerValues'=>(isset($_SESSION['registerValues'])) ? $_SESSION['registerValues'] : ['name'=>'', 'email'=>'', 'phone'=>'']
 
 	]);
@@ -442,6 +443,8 @@ $app->post("/register", function() {
 		exit;
 
 	}
+
+	User::setSuccess("Registro Realizado com sucesso!");
 
 	$_SESSION['registerValues'] = NULL;
 

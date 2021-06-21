@@ -68,8 +68,8 @@ class Product extends Model {
 
 		$sql = new Sql();
 
-		$sql->query("DELETE FROM tb_products WHERE idproduct = :idproduct", [
-			':idproduct'=>$this->getidproduct()
+		$sql->query("CALL sp_products_delete(:idproduct)", [
+         ':idproduct'=>$this->getidproduct()
 		]);
 
 	}

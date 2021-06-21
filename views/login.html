@@ -56,6 +56,11 @@
                 <p><i class="fa fa-exclamation-circle"></i>&nbsp;{$errorRegister}</p>
                 </div>
                 {/if}
+                {if="$sucessRegister != ''"}
+                <div class="alert alert-success" style="margin:10px">
+                    {$sucessRegister}
+                </div>
+                {/if}
                 <form id="register-form-wrap" action="/register" class="register" method="post">
                     <h2>Criar conta</h2>
                     <p class="form-row form-row-first">
